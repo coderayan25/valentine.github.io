@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffeef8 0%, #ffc3e1 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    background: #f5f5f0;
+    border-radius: 30px;
+    padding: 60px 80px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    position: relative;
+}
+
+.cat {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 30px;
+    position: relative;
+}
+
+.cat-face {
+    width: 100%;
+    height: 100%;
+    background: #f4a460;
+    border-radius: 50%;
+    position: relative;
+}
+
+.cat-ear-left,
+.cat-ear-right {
+    width: 40px;
+    height: 50px;
+    background: #f4a460;
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+    top: -20px;
+}
+
+.cat-ear-left {
+    left: 20px;
+    transform: rotate(-25deg);
+}
+
+.cat-ear-right {
+    right: 20px;
+    transform: rotate(25deg);
+}
+
+.cat-eye {
+    width: 12px;
+    height: 12px;
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 55px;
+}
+
+.cat-eye-left {
+    left: 45px;
+}
+
+.cat-eye-right {
+    right: 45px;
+}
+
+.cat-nose {
+    width: 15px;
+    height: 12px;
+    background: #ff69b4;
+    border-radius: 50% 50% 50% 50%;
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cat-mouth {
+    width: 40px;
+    height: 20px;
+    border: 3px solid #333;
+    border-top: none;
+    border-radius: 0 0 50% 50%;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.heart {
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    font-size: 50px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: 600;
+}
+
+.buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    position: relative;
+    min-height: 80px;
+}
+
+button {
+    padding: 20px 50px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#yesBtn {
+    background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+#yesBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+}
+
+#noBtn {
+    background: #e0e0e0;
+    color: #666;
+    position: absolute;
+    transition: all 0.2s ease;
+}
+
+#noBtn:hover {
+    background: #d0d0d0;
+}
+
+.note {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+}
+
+.celebration {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+.celebration.active {
+    display: flex;
+}
+
+.celebration h2 {
+    font-size: 4em;
+    color: #e91e63;
+    margin-bottom: 20px;
+    animation: bounceIn 1s ease;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.celebration p {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #e91e63;
+    position: absolute;
+    animation: confetti-fall 3s linear infinite;
+}
+
+@keyframes confetti-fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 40px 30px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    button {
+        padding: 15px 35px;
+        font-size: 1.2em;
+    }
+}
